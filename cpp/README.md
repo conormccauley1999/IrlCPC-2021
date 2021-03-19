@@ -1,0 +1,1 @@
+`sh gen.sh` to generate the folders and files populated with the template.
