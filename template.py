@@ -5,7 +5,7 @@ from io import BytesIO, IOBase
 def main():
     pass
 
-### FAST IO ###
+# region fastio
 
 BUFSIZE = 8192
 
@@ -51,19 +51,9 @@ class IOWrapper(IOBase):
         self.read = lambda: self.buffer.read().decode("ascii")
         self.readline = lambda: self.buffer.readline().decode("ascii")
 
-def print(*args, **kwargs):
-    """Prints the values to a stream, or to sys.stdout by default."""
-    sep, file = kwargs.pop("sep", " "), kwargs.pop("file", sys.stdout)
-    at_start = True
-    for x in args:
-        if not at_start:
-            file.write(sep)
-        file.write(str(x))
-        at_start = False
-    file.write(kwargs.pop("end", "\n"))
-    if kwargs.pop("flush", False):
-        file.flush()
-
 sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 input = lambda: sys.stdin.readline().rstrip("\r\n")
+
+# endregion
+
 main()
