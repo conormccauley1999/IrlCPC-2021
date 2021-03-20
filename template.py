@@ -1,6 +1,8 @@
 import os
 import sys
 from io import BytesIO, IOBase
+INF = 10**10
+MOD = 10**9+7
 
 def main():
     pass
