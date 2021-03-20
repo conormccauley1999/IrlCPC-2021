@@ -58,4 +58,5 @@ input = lambda: sys.stdin.readline().rstrip("\r\n")
 
 # endregion
 
-main()
+if __name__ == "__main__":
+    main()
