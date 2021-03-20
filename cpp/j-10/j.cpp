@@ -59,14 +59,64 @@ typedef long double ld;
 template<typename T, typename U> inline void amin(T &x, U y) { if(y < x) x = y; }
 template<typename T, typename U> inline void amax(T &x, U y) { if(x < y) x = y; }
 
-
+int64 N, C;
 void solve(){
 
 }
 
+//https://www.geeksforgeeks.org/prime-factor/
+VI primeFactors(int n)  
+{  
+    // Print the number of 2s that divide n  
+    VI v;
+    while (n%2 == 0)  
+    {  
+        v.push_back(2);
+        n = n/2;  
+    }  
+    
+    // n must be odd at this point.  So we can skip   
+    // one element (Note i = i +2)  
+    for (int i = 3; i <= sqrt(n); i = i+2)  
+    {  
+        // While i divides n, print i and divide n  
+        while (n%i == 0)  
+        {  
+            v.push_back(i);
+            n = n/i;  
+        }  
+    }  
+    
+    // This condition is to handle the case when n   
+    // is a prime number greater than 2  
+    if (n > 2)  
+        v.push_back(n);
+
+    return v;
+}  
+
 int main()
 {
-  cin >> N; 
+  cin >> N >> C; 
+
+  int64 res = N;
+
+  for(int i = 1; i <= N; i++){
+    if(N % i == 0){
+      int64 a = i;
+      int64 b = N / a;
+      amin(res, a-1+ceil(b/2));
+      cout << a << " " << b <<endl;
+    }
+  }
+
+  VI v = primeFactors(N);
+
+  // find all C prime sums
+
+
+
+  cout << res << endl;
 
   return 0;
 }

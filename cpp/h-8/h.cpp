@@ -114,8 +114,8 @@ int main() {
 
   REP(i, N) {
     REP(j, M) {
-      for (int64 i2 = i; i2 < N; i2++) {
-        for (int64 j2 = j; j2 < M; j2++) {
+      for (int64 i2 = i; i2 < N; i2+=1) {
+        for (int64 j2 = j; j2 < M; j2+=1) {
           int64 nums5 =
               dp[i2 + 1][j2 + 1] - dp[i2+1][j] - dp[i][j2+1] + dp[i][j];
 

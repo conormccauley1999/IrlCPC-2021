@@ -59,14 +59,33 @@ typedef long double ld;
 template<typename T, typename U> inline void amin(T &x, U y) { if(y < x) x = y; }
 template<typename T, typename U> inline void amax(T &x, U y) { if(x < y) x = y; }
 
-
+int64 C, M;
+int64 arr[550002];
+bool appr[550002];
 void solve(){
 
 }
 
 int main()
 {
-  cin >> N; 
+  cin >> C >> M;
+
+  int64 x;
+  string a;
+  int64 total = 0;
+  REP(i, M-1){
+    cin >> x >> a;
+    total += x;
+    arr[i+1] = x;
+    appr[i+1] = a == "F";
+  }
+
+  int64 res = total*C;
+
+  
+
+  cout << res << endl;
+
 
   return 0;
 }
